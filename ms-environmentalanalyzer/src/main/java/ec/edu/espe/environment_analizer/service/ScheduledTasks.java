@@ -32,7 +32,7 @@ public class ScheduledTasks {
             AlertDTO report = new AlertDTO();
             report.setAlertId("ALT-" + UUID.randomUUID().toString());
             report.setType("DailyReportGenerated");
-            report.setValueattendance(0.0); // Simulado, podría calcularse desde sensor_readings
+            report.setValue(0.0); // Simulado, podría calcularse desde sensor_readings
             report.setThreshold(0.0); // No aplicable para reportes
             report.setTimestamp(LocalDateTime.now());
 
@@ -40,7 +40,7 @@ public class ScheduledTasks {
             Alert alertEntity = new Alert();
             alertEntity.setAlertId(report.getAlertId());
             alertEntity.setType(report.getType());
-            alertEntity.setValue(report.getValueattendance());
+            alertEntity.setValue(report.getValue());
             alertEntity.setThreshold(report.getThreshold());
             alertEntity.setTimestamp(report.getTimestamp());
             alertRepository.save(alertEntity);
@@ -62,7 +62,7 @@ public class ScheduledTasks {
             alert.setAlertId("ALT-" + UUID.randomUUID().toString());
             alert.setType("SensorInactiveAlert");
             alert.setSensorId("SENSOR_123"); // Ejemplo, debería obtenerse de una consulta
-            alert.setValueattendance(0.0); // No aplicable
+            alert.setValue(0.0); // No aplicable
             alert.setThreshold(0.0); // No aplicable
             alert.setTimestamp(LocalDateTime.now());
 
@@ -71,7 +71,7 @@ public class ScheduledTasks {
             alertEntity.setAlertId(alert.getAlertId());
             alertEntity.setType(alert.getType());
             alertEntity.setSensorId(alert.getSensorId());
-            alertEntity.setValue(alert.getValueattendance());
+            alertEntity.setValue(alert.getValue());
             alertEntity.setThreshold(alert.getThreshold());
             alertEntity.setTimestamp(alert.getTimestamp());
             alertRepository.save(alertEntity);

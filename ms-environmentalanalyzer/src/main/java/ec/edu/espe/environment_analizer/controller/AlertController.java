@@ -54,7 +54,7 @@ public class AlertController {
         dto.setAlertId(alert.getAlertId());
         dto.setType(alert.getType());
         dto.setSensorId(alert.getSensorId());
-        dto.setValueattendance(alert.getValue());
+        dto.setValue(alert.getValue());
         dto.setThreshold(alert.getThreshold());
         dto.setTimestamp(alert.getTimestamp());
         return dto;

@@ -68,11 +68,11 @@ public class NotificationService {
             // Simular envío de notificaciones
             if (notification.getRecipient().contains("example.com")) {
                 // Simular correo
-                restTemplate.postForObject("http://localhost:8080/mock-email", notification, String.class);
+                restTemplate.postForObject("http://localhost:8000/api/conjunta/2p/notifications/mock-email", notification, String.class);
                 logger.info("Correo enviado: {} a {}", notification.getEventType(), notification.getRecipient());
             } else {
                 // Simular SMS
-                restTemplate.postForObject("http://localhost:8080/mock-sms", notification, String.class);
+                restTemplate.postForObject("http://localhost:/api/conjunta/2p/notifications/mock-sms", notification, String.class);
                 logger.info("SMS enviado: {} a {}", notification.getEventType(), notification.getRecipient());
             }
             // Simular push notification

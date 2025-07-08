@@ -12,5 +12,4 @@ public class EventDto {
     private Double value;
     private Instant timestamp;
 
-
 }

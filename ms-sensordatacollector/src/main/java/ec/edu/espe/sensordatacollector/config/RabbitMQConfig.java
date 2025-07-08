@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RabbitMQConfig {
-    public static final String QUEUE = "analyzer.cola";
-
-    @Bean
-    public Queue analyzerQueue() {
-        return QueueBuilder.durable(QUEUE).build();
-    }
+//    public static final String ANALYZER_QUEUE = "analyzer.cola";
+//
+//    @Bean
+//    public Queue notificationQueue() {
+//        return new Queue(ANALYZER_QUEUE, true);
+//    }
 }

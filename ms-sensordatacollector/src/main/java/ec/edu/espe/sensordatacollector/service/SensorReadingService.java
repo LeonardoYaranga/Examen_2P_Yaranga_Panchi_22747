@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -23,7 +24,6 @@ public class SensorReadingService {
 
     private final SensorReadingRepository sensorReadingRepository;
     private final AnalyzerProducer analyzerProducer;
-    private final ObjectMapper objectMapper;
 
     public SensorReading saveSensorReading(SensorReadingDto dto) {
         // Validaciones
@@ -58,14 +58,14 @@ public class SensorReadingService {
             SensorReading savedReading = sensorReadingRepository.save(reading);
             logger.info("Sensor reading saved: {}", savedReading);
 
-            // Crear evento NewSensorReadingEvent
-            EventDto eventDto = new EventDto();
-            eventDto.setEventId("EVT-" + UUID.randomUUID().toString());
-            eventDto.setSensorId(dto.getSensorId());
-            eventDto.setType(dto.getType());
-            eventDto.setValue(dto.getValue());
-            eventDto.setTimestamp(Instant.now());
-            analyzerProducer.sendEvent(eventDto);
+            // Enviar evento a analyzer.cola
+            analyzerProducer.sendEvent(
+                    savedReading.getId(),
+                    dto.getSensorId(),
+                    dto.getType(),
+                    dto.getValue(),
+                    dto.getTimestamp()
+            );
 
             return savedReading;
         } catch (Exception e) {

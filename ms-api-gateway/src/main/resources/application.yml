@@ -26,12 +26,19 @@ spring:
                 - Path=/api/conjunta/2p/notifications/**
               filters:
                 - StripPrefix=3
+            - id: notification-dispatcher
+              uri: lb://SERVICIO-NOTIFICACIONES
+              predicates:
+                - Path=/api/conjunta/2p/notifications/**
+              filters:
+                - StripPrefix=3
             - id: sensordata-collector
               uri: lb://SERVICIO-SENSORES
               predicates:
                 - Path=/api/conjunta/2p/sensor-readings/**
               filters:
                 - StripPrefix=3
+
 
 eureka:
   client:

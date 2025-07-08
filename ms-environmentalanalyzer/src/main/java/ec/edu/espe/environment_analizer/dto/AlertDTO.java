@@ -13,7 +13,7 @@ public class AlertDTO {
     private String alertId;
     private String type;
     private String sensorId;
-    private double valueattendance;
+    private double value;
     private double threshold;
     private LocalDateTime timestamp;
 }
