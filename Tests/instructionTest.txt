@@ -1,0 +1,8 @@
+#Librerias
+pip install locust
+
+
+#Para correr
+python -m locust -f test.py 
+
+

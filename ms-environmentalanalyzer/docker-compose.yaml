@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: postgres
+      RABBITMQ_DEFAULT_PASS: postgres
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - shared-net
+    restart: unless-stopped
+
+volumes:
+  rabbitmq_data:
+
+networks:
+  shared-net:
+    external: true

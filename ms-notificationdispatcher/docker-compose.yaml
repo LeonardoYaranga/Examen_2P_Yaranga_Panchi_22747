@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: postgres
+      RABBITMQ_DEFAULT_PASS: postgres
+      # Configuraciones adicionales para durabilidad
+      RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS: -rabbit disk_free_limit 2147483648
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+      - rabbitmq_logs:/var/log/rabbitmq
+
+    networks:
+      - shared-net
+    restart: unless-stopped
+
+volumes:
+  rabbitmq_data:
+  rabbitmq_logs:
+
+networks:
+  shared-net:
+    external: true

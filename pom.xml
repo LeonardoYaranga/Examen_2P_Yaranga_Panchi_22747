@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ec.edu.espe</groupId>
+    <artifactId>Examen_2P_Yaranga_Panchi</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>Examen_2P_Yaranga_Panchi</name>
+    <description>Examen_2P_Yaranga_Panchi</description>
+    <packaging>pom</packaging>
+    <modules>
+        <module>ms-sensordatacollector</module>
+        <module>ms-notificationdispatcher</module>
+        <module>ms-environmentalanalyzer</module>
+        <module>ms-eureka-server</module>
+        <module>ms-api-gateway</module>
+    </modules>
+
+
+</project>
