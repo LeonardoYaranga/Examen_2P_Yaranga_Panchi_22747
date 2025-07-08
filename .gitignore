@@ -1,0 +1,64 @@
+# ------------------------------
+# Java & Maven
+# ------------------------------
+*.class
+*.jar
+*.war
+*.ear
+
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# ------------------------------
+# Logs
+# ------------------------------
+*.log
+logs/
+*.out
+
+# ------------------------------
+# IntelliJ IDEA
+# ------------------------------
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# ------------------------------
+# VSCode (si usas)
+# ------------------------------
+.vscode/
+
+# ------------------------------
+# Sistema operativo
+# ------------------------------
+.DS_Store
+Thumbs.db
+
+# ------------------------------
+# Config por entorno
+# ------------------------------
+application-local.yml
+application-dev.yml
+application-test.yml
+.env
+
+# ------------------------------
+# Docker (si lo usas)
+# ------------------------------
+**/docker-compose.override.yml
+**/*.local.yml
+
+# ------------------------------
+# Spring Cloud Config repo (si es aparte)
+# ------------------------------
+/config-repo/
+
+# ------------------------------
+# Backup o archivos temporales
+# ------------------------------
+*~
+*.bak
+*.tmp
+*.swp
